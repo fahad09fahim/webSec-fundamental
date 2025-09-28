@@ -1,0 +1,131 @@
+1. Network Fundamentals
+2. OSI Model
+3. Packets & Frames
+4. DNS in details
+5. HTTP in details
+6. Website backend, frontend
+7. How website works
+8. Linux Fundamentals ( Part 1,2,3 - THM )
+9. Nmap A to Z
+10. BurpSuite (Intercept, Proxy, Repeater, Intruder, Decoder)
+11. Hydra
+========================================
+
+Network-(identify devices on a network)->ip address(can be change), mac address(can not change without spoofing)
+------------
+Ip address-> Internet protocol given by ISP. It's like a  phone number to communicate with other devices on the network/internet.
+Public ip address-> for communicate other devices on the internet.
+private ip address-> communicate devices(printer/scanner) on the network.
+------------
+Mac Address-> Media access control is a physical address of a devices. Mac used to identify devices within a local network.
+
+**IP addresses are like your real-world house addresses, and MAC addresses are the rooms in these houses.**(https://www.comms-express.com/blog/what-is-the-difference-between-ip-and-mac-addresses/)
+
+------------
+Ping=> ping is used to determine connection between devices.
+============================
+
+----------------------------------------------------------------LAN---------------------------------------------
+Topologies=>
+Star- central switch connect all devices in a network
+Bus- Backbone cable connect all devices in a network
+Ring- All devices are connected in a loop.
+----------
+Subnet-> splitting up large number of network into small network.
+------
+ARP-> translate ip address into mac address. Search ip of an devices to know the mac address. In response if the ip alive it send mac address to the requested device. Then two devices communicate each other. Arp store cache use for future communication with devices.
+-------
+DHCP->  allocate ip address to a devices.
+------------------------------------------------------------
+---------------------------------------------------------------OSI Model------------------------------------------
+*How all networked devices will send, receive and interpret data.*
+1.Physical=>  cables, connectors.
+2.DataLink=> receive packets from network layer and adds in the physical MAC of the endpoint.
+3.Network=>Packets are delivering using Ip address in this layer. It also include  OSPF (Open Shortest Path First) and RIP (Routing Information Protocol).
+4.Transport=> Transmission data across a network with two different protocol- TCP/UDP.
+ -> TCP for  real-life situations where it's crucial that all data arrives correctly and in the right order. Web browser/email/FTP use TCP protocol. 
+ ->UDP use where speed is more important than perfect accuracy. Online gamin/video streaming use UDP protocol.
+5.Session=> When connection is established, session is created for transmit data until the connection alive.
+6.Presentation=> Act as translator. It translate data to and from the application layer. 
+7.Application => In this layer user interact with the data directly. Application provide GUI for the user. 
+
+==========================================Packets & Frames=======================================================
+->packets & frames are small pieces of data. Packets is a piece of data from layer3 which include ip address. Frames encapsulate packets in layer2.
+
+=>ports.
+-Ports help computer to differentiate between incoming and outgoing traffic.
+ex- An application has different types of service. To identify them we use port number.
+
+------------------------------------------DNS---------------------------------------------------------------------
+Domain name system is a name use instead of ip address.
+TLD- gTLD-(.com .org .edu) / ccTLD(.bd .ca .uk)
+Second level domain - tryhackme
+sub domain- admin.tryhackme.com admin is subdomain here.
+
+===DNS record type=
+A record - for ip4
+AAAA -for ip6
+CNAME- for subdomain
+mx for mailing
+======
+user -> dns resolver -> root/tld/second -> resolver (ip response)->user(response).
+============================================HTTP==================================================================
+Hyper text transfer protocol is a set of rule to communicate with the web server.
+get- request web server
+post - input something to the server
+put- update data
+delete- delete data
+--------
+status code- 100 Information
+             200 successful
+             300 redirect
+             400 client error
+             500 server error
+
+
+
+==================================================================Linux fundamentals--------------------------------
+echo- to see output on terminal
+whoami- which user currently logged in
+ls- listing file
+cd- changing directory
+cat- output content of a file
+pwd - current directory
+find- to find any file ( find -name example.txt)
+grep-search the contents of files
+& - allow run program on background
+&&-combine multiple command
+>-pipe operator to input data
+>>- append data
+===================================fundamentals-2=============================
+SSH allows us to remotely execute commands on another device remotely.
+command- ssh userName@ip
+
+ls -a => show hidden file
+man => manual page for system command and application
+======file system
+touch -> create file
+mkdir -> create folder
+cp -> copy 
+mv -> move
+rm -> remove
+file -> determine file type
+======common directories
+/etc -> store system file
+/var -> store data for application
+/root ->home directory of a user
+=================================fundamental 3-=================================
+nano => terminal text editor
+wget => download file 
+scp => file copy from local to remote 
+----scp important.txt ubuntu@192.168.1.30:/home/ubuntu/transferred.txt(loacl to remote system)
+----scp ubuntu@192.168.1.30:/home/ubuntu/documents.txt notes.txt (remote system to local )
+
+----
+ps - list of running process
+ps aux - list of running process with user
+kill - to kill any process (kill 2301)
+systemctl-> (process start/kill/enable/disable) exmp-(systemctl start apache2)
+fg->previously backgrounded process back to the foreground
+
+
